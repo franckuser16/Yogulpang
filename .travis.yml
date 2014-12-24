@@ -13,5 +13,5 @@ before_script:
   - sleep 1 # give server time to start
 
 script:
-  - karma start karma.conf.js --no-auto-watch --single-run --reporters=dots --browsers=Firefox
-  - protractor protractor.conf.js --browsers=Firefox
+  - gulp test
+  - gulp protractor
