@@ -19,16 +19,16 @@ gulp.task('styles', ['wiredep', 'injector:css:preprocessor'], function () {
       console.error(err.toString());
       this.emit('end');
     })
-    .pipe($.autoprefixer())
+    .pipe($.autoprefixer()) // Prefix CSS https://github.com/sindresorhus/gulp-autoprefixer
     .pipe(gulp.dest('.tmp/app/'));
 });
 
 gulp.task('injector:css:preprocessor', function () {
   return gulp.src('src/app/index.less')
-    .pipe($.inject(gulp.src([
+    .pipe($.inject(gulp.src([ // A javascript, stylesheet and webcomponent injection plugin for Gulp https://github.com/klei/gulp-inject
         'src/{app,components}/**/*.less',
         '!src/app/index.less',
-        '!src/app/vendor.less' 
+        '!src/app/vendor.less'
       ], {read: false}), {
       transform: function(filePath) {
         filePath = filePath.replace('src/app/', '');
@@ -66,8 +66,8 @@ gulp.task('injector:js', ['scripts', 'injector:css'], function () {
       'src/{app,components}/**/*.js',
       '!src/{app,components}/**/*.spec.js',
       '!src/{app,components}/**/*.mock.js'
-    ]).pipe($.angularFilesort()), {
-      ignorePath: 'src',
+    ]).pipe($.angularFilesort()), { // Automatically sort AngularJS app files depending on module definitions and usage https://github.com/klei/gulp-angular-filesort
+        ignorePath: 'src',
       addRootSlash: false
     }))
     .pipe(gulp.dest('src/'));
@@ -75,7 +75,7 @@ gulp.task('injector:js', ['scripts', 'injector:css'], function () {
 
 gulp.task('partials', ['consolidate'], function () {
   return gulp.src(['src/{app,components}/**/*.html', '.tmp/{app,components}/**/*.html'])
-    .pipe($.minifyHtml({
+    .pipe($.minifyHtml({ // A Gulp plugin that minifies html with Minimize https://github.com/jonathanepollack/gulp-minify-html
       empty: true,
       spare: true,
       quotes: true
