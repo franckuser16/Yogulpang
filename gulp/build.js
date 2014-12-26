@@ -80,7 +80,7 @@ gulp.task('partials', ['consolidate'], function () {
       spare: true,
       quotes: true
     }))
-    .pipe($.angularTemplatecache('templateCacheHtml.js', {
+    .pipe($.angularTemplatecache('templateCacheHtml.js', { // Concatenates and registers AngularJS templates in the $templateCache. https://github.com/miickel/gulp-angular-templatecache
       module: 'yogulpang'
     }))
     .pipe(gulp.dest('.tmp/inject/'));
