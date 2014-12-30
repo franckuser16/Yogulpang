@@ -124,7 +124,7 @@ gulp.task('html', ['wiredep', 'injector:css', 'injector:js', 'partials'], functi
 
 gulp.task('images', function () {
   return gulp.src('src/assets/images/**/*')
-    .pipe($.imagemin({
+    .pipe($.imagemin({ //  Minify images seamlessly. https://github.com/imagemin/imagemin
       optimizationLevel: 3,
       progressive: true,
       interlaced: true
