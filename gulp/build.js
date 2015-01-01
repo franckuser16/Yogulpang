@@ -99,7 +99,7 @@ gulp.task('html', ['wiredep', 'injector:css', 'injector:js', 'partials'], functi
       addRootSlash: false
     }))
     .pipe(assets = $.useref.assets())
-    .pipe($.rev())
+    .pipe($.rev()) // Static asset revisioning by appending content hash to filenames: unicorn.css → unicorn-098f6bcd.css https://github.com/sindresorhus/gulp-rev
     .pipe(jsFilter)
     .pipe($.ngAnnotate()) // Add, remove and rebuild AngularJS dependency injection annotations https://github.com/olov/ng-annotate
     .pipe($.uglify({preserveComments: $.uglifySaveLicense}))
@@ -110,7 +110,7 @@ gulp.task('html', ['wiredep', 'injector:css', 'injector:js', 'partials'], functi
     .pipe(cssFilter.restore())
     .pipe(assets.restore())
     .pipe($.useref())
-    .pipe($.revReplace())
+    .pipe($.revReplace()) // Rewrite occurences of filenames which have been renamed by gulp-rev https://github.com/jamesknelson/gulp-rev-replace
     .pipe(htmlFilter)
     .pipe($.minifyHtml({
       empty: true,
