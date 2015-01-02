@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('yogulpang', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router'])
+angular.module('yogulpang', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.codemirror'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
