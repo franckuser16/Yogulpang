@@ -6,6 +6,7 @@ var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
 });
 
+// wiredep -> Wire dependencies to your source code. https://github.com/taptapship/wiredep
 gulp.task('styles', ['wiredep', 'injector:css:preprocessor'], function () {
   return gulp.src(['src/app/index.less', 'src/app/vendor.less'])
     .pipe($.less({
