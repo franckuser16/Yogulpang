@@ -18,5 +18,10 @@
   },
   "resolutions": {
     "angular": "~1.3.4"
+  },
+  "overrides": {
+    "codemirror": {
+      "main": ["lib/codemirror.js", "lib/codemirror.css", "mode/javascript/javascript.js", "keymap/vim.js"]
+    }
   }
 }

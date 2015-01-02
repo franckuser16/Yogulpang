@@ -62,4 +62,12 @@ angular.module('yogulpang')
     angular.forEach($scope.awesomeThings, function(awesomeThing) {
       awesomeThing.rank = Math.random();
     });
+
+    $scope.editorOptions = {
+      value: "var bob = function() {\n\n};",
+      lineWrapping : true,
+      lineNumbers: true,
+      vimMode: true,
+      mode: 'javascript'
+    };
   });
