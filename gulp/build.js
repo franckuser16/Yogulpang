@@ -98,6 +98,7 @@ gulp.task('html', ['wiredep', 'injector:css', 'injector:js', 'partials'], functi
       ignorePath: '.tmp',
       addRootSlash: false
     }))
+    //Explanation of this pipeline : https://github.com/jamesknelson/gulp-rev-replace#usage
     .pipe(assets = $.useref.assets())
     .pipe($.rev()) // Static asset revisioning by appending content hash to filenames: unicorn.css → unicorn-098f6bcd.css https://github.com/sindresorhus/gulp-rev
     .pipe(jsFilter)
